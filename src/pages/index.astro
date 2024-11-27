@@ -2,7 +2,8 @@
 import '../styles/global.css';
 
 import Layout from '../layouts/Layout.astro';
-import Card from '../components/Card.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 
 const pageTitle = "Home";
 
@@ -52,9 +53,7 @@ const skillColor = "pink";
 				</linearGradient>
 			</defs>
 		</svg>
-		<a href="/">Home</a>
-		<a href="/about/">About</a>
-		<a href="/blog/">Blog</a>
+		<Header />
 		<h1>Welcome to <span class="text-gradient">Jamie's first Astro app</span></h1>
 		
 		<p>Here are a few facts about me:</p>
@@ -74,8 +73,12 @@ const skillColor = "pink";
 
 		{finished && <p>I finished this tutorial!</p>}
 
-		{goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
+		{<p>My goal is to finish in {goal} day.</p>}
 	</main>
+	<Footer />
+	<script>
+		import "../scripts/menu.ts";
+	</script>
 </Layout>
 
 <style define:vars={{skillColor}}>
@@ -141,3 +144,9 @@ const skillColor = "pink";
 		padding: 0;
 	}
 </style>
+
+<script>
+    document?.querySelector('.hamburger')?.addEventListener('click', () => {
+		document?.querySelector('.nav-links')?.classList.toggle('expanded');
+    });
+</script>
