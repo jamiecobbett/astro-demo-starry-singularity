@@ -2,6 +2,7 @@
 import '../styles/global.css';
 
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Greeting from '../components/Greeting';
 
 const pageTitle = "Home";
 
@@ -15,7 +16,7 @@ const identity = {
 const skills = ["Ruby", "HTML", "JavaScript/TypeScript", "React", "Astro", "Writing Docs"];
 
 const happy = true;
-const finished = false;
+const finished = true;
 const goal = 1;
 
 const skillColor = "pink";
@@ -52,6 +53,8 @@ const skillColor = "pink";
 			</defs>
 		</svg>
 		
+		<Greeting client:load messages={["Hej", "Hallo", "Hola", "Habari"]} />
+
 		<p>Here are a few facts about me:</p>
 		<ul>
 			<li>My name is {identity.firstName}.</li>
